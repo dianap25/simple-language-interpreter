@@ -202,14 +202,17 @@ BOOL_LITERAL     =   "true" | "false"  ;
 IDENTIFIER       =   LETTER, {LETTER | DIGIT | "_"};
 
 
-PROGRAM       = { STATEMENT } ;
+PROGRAM          = { STATEMENT } ;
 
-STATEMENT     = ASSIGNMENT
-              | IF
-              | WHILE
-              | FUNCTION
-              | RETURN
-              | EXPR ;
+STATEMENT        = SINGLE_STATEMENT, { ",", SINGLE_STATEMENT } ;
+
+SINGLE_STATEMENT = ASSIGNMENT
+                 | IF
+                 | WHILE
+                 | FUNCTION
+                 | RETURN
+                 | BLOCK
+                 | EXPRESSION_STATEMENT ;
 
 ASSIGNMENT    = IDENT, "=", EXPRESSION ;
 
