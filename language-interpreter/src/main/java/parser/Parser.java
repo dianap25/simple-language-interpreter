@@ -10,18 +10,18 @@ import lexer.TokenType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Parse {
+public class Parser {
 
     private final Lexer lexer;
     private Token current;
     private Token next;
     private Token previous;
 
-    public Parse(Lexer lexer) {
+    public Parser(Lexer lexer) {
         this.lexer = lexer;
         this.current = lexer.nextToken();
         this.next = lexer.nextToken();
-        this.previous = lexer.nextToken();
+        this.previous = null;
     }
 
     /*
@@ -121,10 +121,10 @@ public class Parse {
         Expr condition = parseExpression();
         expect(TokenType.THEN, "expected 'then' ");
 
-        Stmt thenBranch = parseSingleStatement();
+        Stmt thenBranch = parseStatement();
 
         expect(TokenType.ELSE, "expected 'else' ");
-        Stmt elseBranch = parseSingleStatement();
+        Stmt elseBranch = parseStatement();
 
         return new Stmt.If(condition, thenBranch, elseBranch, ifToken.position());
     }
@@ -137,7 +137,7 @@ public class Parse {
         Expr condition = parseExpression();
         expect(TokenType.DO, "expected 'do' after while condition");
 
-        Stmt body = parseSingleStatement();
+        Stmt body = parseStatement();
         return new Stmt.While(condition, body, whileToken.position());
     }
 
