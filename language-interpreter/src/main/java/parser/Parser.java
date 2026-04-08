@@ -147,7 +147,7 @@ public class Parser {
      */
     private Stmt.Function parseFunction() {
         Token funToken = expect(TokenType.FUN, "expected 'fun' ");
-        Token name = expect(TokenType.IDENTIFIER, "expected  function 'name' ");
+        Token name = expect(TokenType.IDENTIFIER, "expected function name");
 
         expect(TokenType.OPEN_PARENTHESES, "expected '(' after function name");
 
