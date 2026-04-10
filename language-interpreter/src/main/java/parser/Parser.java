@@ -121,10 +121,10 @@ public class Parser {
         Expr condition = parseExpression();
         expect(TokenType.THEN, "expected 'then' ");
 
-        Stmt thenBranch = parseStatement();
+        Stmt thenBranch = parseSingleStatement();
 
         expect(TokenType.ELSE, "expected 'else' ");
-        Stmt elseBranch = parseStatement();
+        Stmt elseBranch = parseSingleStatement();
 
         return new Stmt.If(condition, thenBranch, elseBranch, ifToken.position());
     }

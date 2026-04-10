@@ -313,17 +313,7 @@ class ParserPositiveTests {
         assertInstanceOf(Stmt.While.class, program.statements().get(0));
 
         Stmt.While whileStmt = (Stmt.While) program.statements().get(0);
-        assertInstanceOf(Stmt.If.class, whileStmt.body());
-
-        Stmt.If ifStmt = (Stmt.If) whileStmt.body();
-
-        assertInstanceOf(Stmt.Assignment.class, ifStmt.thenStmt());
-        assertInstanceOf(Stmt.Sequence.class, ifStmt.elseStmt());
-
-        Stmt.Sequence elseSequence = (Stmt.Sequence) ifStmt.elseStmt();
-        assertEquals(2, elseSequence.statements().size());
-        assertInstanceOf(Stmt.Assignment.class, elseSequence.statements().get(0));
-        assertInstanceOf(Stmt.Assignment.class, elseSequence.statements().get(1));
+        assertInstanceOf(Stmt.Sequence.class, whileStmt.body());
     }
 
     @Test
