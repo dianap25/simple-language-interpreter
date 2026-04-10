@@ -28,4 +28,9 @@ public final class BuiltinFunction implements FunctionValue, CallableValue {
     public String name() {
         return name;
     }
+
+    @Override
+    public Object value() {
+        return null;
+    }
 }

@@ -19,4 +19,9 @@ public record UserFunction(
     public int arity() {
         return parameters.size();
     }
+
+    @Override
+    public Object value() {
+        return null;
+    }
 }

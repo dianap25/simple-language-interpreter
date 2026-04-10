@@ -1,11 +1,15 @@
 package interpreter;
 
+
 public sealed interface RuntimeValue permits
         IntValue,
         DoubleValue,
-        BoolValue,
         StringValue,
-        ListValue
-{
+        BoolValue,
+        ListValue,
+        FunctionValue {
+
     String typeName();
+
+    Object value();
 }
