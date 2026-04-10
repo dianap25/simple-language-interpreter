@@ -1,5 +1,11 @@
 # Simple Language Interpreter (Java)
 
+# Run program
+```bash
+mvn clean package
+cat program.txt | java -jar target/language-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar
+```
+
 ## Overview
 
 This project implements a simple interpreter for a dynamically typed, strongly typed programming language.
@@ -216,7 +222,7 @@ SINGLE_STATEMENT = ASSIGNMENT
 
 ASSIGNMENT    = IDENT, "=", EXPRESSION ;
 
-IF            = "if", EXPRESSION ,"then", STATEMENT, "else", STATEMENT ;
+IF            = "if", EXPRESSION ,"then", SINGLE_STATEMENT, "else", SINGLE_STATEMENT ;
 
 WHILE         = "while", EXPRESSION, "do", STATEMENT ;
 
